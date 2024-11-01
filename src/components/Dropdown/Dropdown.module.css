@@ -1,0 +1,178 @@
+/* Stil za dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Stil za dugme na dropdownu */
+  /* .dropdown_button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  } */
+  
+  /* Stil za sadržaj dropdown liste (sakriva se inicijalno) */
+  .dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #1c87c5;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    max-height: 200px; /* Postavite visinu po želji */
+    overflow-y: auto;
+    margin-left: 3rem;
+    margin-top: -1rem;
+
+
+  }
+
+  .dropdown_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown_list li {
+    cursor: pointer;
+    font: inherit;
+    background-color: #1351d8;
+    border: 1px solid #1351d8;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .dropdown_list li:hover {
+    background-color: #021c53;
+    border-color: #021c53;
+  }
+  /* Stil za opcije unutar dropdown liste */
+  .dropdown_content button {
+    font: inherit;
+    cursor: pointer;
+    background-color: #1351d8;
+    border: 1px solid #1351d8;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .dropdown_content button:hover,
+  button:active {
+    background-color: #021c53;
+    border-color: #021c53;
+  }
+  
+  /* Prikazivanje dropdown sadržaja kada se klikne na dugme */
+  .dropdown:hover .dropdown_content {
+    display: block;
+  }
+  .dropdown_content_from_event {
+    display: none;
+    position: absolute;
+    background-color: #1c87c5;
+    min-width: 260px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+     /* Postavite visinu po želji */
+    overflow-y: auto;
+    right: 17rem;
+    margin-top: -5rem;
+    max-height: 140px; /* Postavite visinu po želji */
+    overflow-y: auto;
+
+
+  }
+  @keyframes blink {
+    0% {
+      opacity: 1;
+      border: 20px white;
+      
+    }
+    50% {
+      opacity: 0;
+      border: 20px white;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .blinkingcomponent {
+    animation: blink 1s ease-in-out 2 forwards; /* animacija traje 1 sekundu, ponavlja se beskonačno */
+  }
+
+  
+  @media (max-width: 769px) {
+    .dropdown_content {
+      display: none;
+      position: absolute;
+      background-color: #1c87c5;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: center;
+       /* Postavite visinu po želji */
+      overflow-y: auto;
+      right: 11.1rem;
+      margin-top: -5rem;
+      max-height: 140px; /* Postavite visinu po želji */
+      overflow-y: auto;
+  
+    }
+  }
+  
+ 
+  @media (max-width: 1370px) and (min-width:769px) {
+    .dropdown_content {
+      display: none;
+      position: absolute;
+      background-color: #1c87c5;
+      min-width: 260px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: center;
+       /* Postavite visinu po želji */
+      overflow-y: auto;
+      right: 17rem;
+      margin-top: -5rem;
+      max-height: 140px; /* Postavite visinu po želji */
+      overflow-y: auto;
+  
+    }
+  
+  
+  }
+
+  @media (max-width: 1370px) and (max-height: 430px)  {
+  
+    .dropdown_content {
+      display: none;
+      position: absolute;
+      background-color: #1c87c5;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      text-align: center;
+       /* Postavite visinu po želji */
+
+      right: 11.2rem;
+      margin-top: -5rem;
+      max-height: 140px; /* Postavite visinu po želji */
+      overflow-y: auto;
+      
+  
+    }
+  
+  
+  }

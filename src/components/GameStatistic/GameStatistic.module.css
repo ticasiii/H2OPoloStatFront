@@ -1,0 +1,124 @@
+.gameStatistic {
+  max-width: 100%;
+  width: 100%;
+  margin: 2rem auto;
+  margin-top: -8rem; 
+  position: relative;
+  animation: statistic 1s ease-out forwards;
+  text-align: center;
+  overflow-x: auto;
+}
+.negativ{
+  background-color: rgb(245, 127, 127);
+}
+.positiv{
+  background-color: rgb(121, 213, 121);
+}
+.minus{
+  width: 33%;
+  background-color: rgb(242, 104, 104);
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plus{
+  width: 33%;
+  background-color: rgb(194, 255, 104);
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .meals ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} */
+
+.table{
+  width: 100%;
+  border: 2px solid;
+  margin-top: 2rem;
+}
+.table input{
+  text-align: center;
+  border: thin;
+  width:3rem;
+  font-size: medium;
+}
+.table input:hover{
+  background-color:lightgrey;
+}
+.table input:focus {
+  outline: none;
+}
+
+.table th{
+  border: solid 1px;
+  text-align: center;
+ 
+}
+.table td{
+  border: solid 1px;
+  text-align: center;
+  height: 2rem;
+  width: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.table td:hover{
+background-color:lightgrey;
+}
+.No{
+  width: 0.5rem;
+}
+.label{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+}
+.table2{
+  width: 60%;
+  border: 2px solid;
+  margin-top: 2rem;
+}
+.table2 input{
+  text-align: center;
+  border: thin;
+  width:3rem;
+  font-size: medium;
+}
+ 
+.table2 th{
+  border: solid 1px;
+  text-align: center;
+}
+.table2 td{
+  border: solid 1px;
+  text-align: center;
+  height: 2rem;
+  
+}
+
+@keyframes statistic {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

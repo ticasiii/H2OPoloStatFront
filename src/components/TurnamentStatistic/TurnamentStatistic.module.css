@@ -1,0 +1,94 @@
+.gameStatistic {
+    max-width: 100rem;
+    width: 90%;
+    height: auto;
+    margin: 2rem auto;
+    margin-top: -8rem; 
+    position: relative;
+    animation: meals-appear 1s ease-out forwards;
+    text-align: center;
+    /* justify-content: center;
+    align-items: center; */
+    overflow-x: auto;
+  }
+  .div{
+    display: inline-block;
+  }
+  .negativ{
+    background-color: rgb(245, 127, 127);
+  }
+  .positiv{
+    background-color: rgb(121, 213, 121);
+  }
+  /* .meals ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  } */
+  .table{
+    width: 100%;
+   
+    margin-top: 2rem;
+    /* display: block; */
+    /* margin: 10px 0; */
+  }
+  .table input{
+    text-align: center;
+    border: thin;
+    width:5rem;
+    font-size: medium;
+  }
+   
+  .table th{
+    border: solid 1px;
+    text-align: center;
+
+  }
+  .table td{
+    border: solid 1px;
+    text-align: center;
+    height: 2rem;
+
+  }
+  .table2{
+    width: 50%;
+    margin-top: 2rem;
+    margin: 10px 0;
+   
+  }
+  .table2 input{
+    text-align: center;
+    border: thin;
+    width:3rem;
+    font-size: medium;
+  }
+   
+  .table2 th{
+    border: solid 1px;
+    text-align: center;
+    width: 100%;
+  }
+  .table2 td{
+    border: solid 1px;
+    text-align: center;
+    height: 2rem;
+    width: 100%;
+  }
+  .table2 tr{
+    width: 100%;
+  }
+  
+  @keyframes meals-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 1200px) { /* Stilovi primenjeni na ekrane do 768px širine (tableti i mobilni uređaji) */
+   
+  }

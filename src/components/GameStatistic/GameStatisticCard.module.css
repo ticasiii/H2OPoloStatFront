@@ -1,0 +1,18 @@
+.card {
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    background-color: white;
+    text-align: center;
+    /* width: fit-content; */
+  }
+  @media (max-width: 1400px) { /* Stilovi primenjeni na ekrane do 768px širine (tableti i mobilni uređaji) */
+    .card {
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      border-radius: 14px;
+      background-color: white;
+      text-align: center;
+      width: fit-content; 
+    }
+  }
