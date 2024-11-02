@@ -22,18 +22,19 @@ const router = createBrowserRouter([
     id:'root',
     //loader: tokenLoader,
     children: [
-      { path:'home', element: <Home />, loader:checkAuthLoader },
-      {
-        index:true,
-        element: <Authentication/>,
-        action:authAction,
+    // { path:'home', element: <Home />, loader:checkAuthLoader },
+      { path:'/', element: <Home /> },
+      // {
+      //   index:true,
+      //   element: <Authentication/>,
+      //   action:authAction,
 
-      },
-      {
-        path: 'logout',
-        action:logoutAction
+      // },
+      // {
+      //   path: 'logout',
+      //   action:logoutAction
 
-      },
+      // },
     ]
   },
 ]);
