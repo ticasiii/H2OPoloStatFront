@@ -1,8 +1,8 @@
 // apiCalls.js
-const API_BASE_URL = 'https://h2opolostat.onrender.com';
+const API_BASE_URL = 'http://194.32.77.167:5000';
 // Add Player
 const addPlayer = async (player) => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/players/addPlayer', {
+  const response = await fetch(`${API_BASE_URL}/api/players/addPlayer`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ const addPlayer = async (player) => {
 // Get All Players
 const getAllPlayers = async () => {
   console.log("tica uso u fet all players");
-  const response = await fetch('https://h2opolostat.onrender.com/api/players/getAllPlayers', {
+  const response = await fetch(`${API_BASE_URL}/api/players/getAllPlayers`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const removePlayer = async (playerId) => {
 
 // Remove Multiple Players
 const removePlayers = async (playerIds) => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/players/removePlayers', {
+  const response = await fetch(`${API_BASE_URL}/api/players/removePlayers`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const removePlayers = async (playerIds) => {
 
 // Add Event
 const addEvent = async (event) => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/events/addEvent', {
+  const response = await fetch(`${API_BASE_URL}/api/events/addEvent`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const addEvent = async (event) => {
 
 // Get All Events
 const getAllEvents = async () => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/events/getAllEvents', {
+  const response = await fetch(`${API_BASE_URL}/api/events/getAllEvents`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const removeEvent = async (eventId) => {
 
 // Add Match
 const addMatch = async (match) => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/matches/addMatch', {
+  const response = await fetch(`${API_BASE_URL}/api/matches/addMatch`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const addMatch = async (match) => {
 
 // Get All Matches
 const getAllMatches = async () => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/matches/getAllMatches', {
+  const response = await fetch(`${API_BASE_URL}/api/matches/getAllMatches`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const updateMatches = async (match) => {
 
 // Create Statistics
 const createStatistics = async (statistic) => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/statistics/createStatistics', {
+  const response = await fetch(`${API_BASE_URL}/api/statistics/createStatistics`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ const createStatistics = async (statistic) => {
 
 // Get Statistics
 const getStatistics = async () => {
-  const response = await fetch('https://h2opolostat.onrender.com/api/statistics/getStatistics', {
+  const response = await fetch(`${API_BASE_URL}/api/statistics/getStatistics`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ const updateStatistics = async (statistic) => {
 };
 
 // const addOrUpdateUserToken = async (user) => {
-//   const response = await fetch('https://h2opolostat.onrender.com/api/users/token', {
+//   const response = await fetch(`${API_BASE_URL}/api/users/token`, {
 //     method: 'POST',
 //     headers: {
 //       'Content-Type': 'application/json',
@@ -211,7 +211,7 @@ const updateStatistics = async (statistic) => {
 // };
 
 // const getUserToken = async (user) => {
-//   const response = await fetch('https://h2opolostat.onrender.com/api/statistics/getUserToken', {
+//   const response = await fetch(`${API_BASE_URL}/api/statistics/getUserToken`, {
 //     method: 'GET',
 //     headers: {
 //       'Content-Type': 'application/json',
