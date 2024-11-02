@@ -82,9 +82,16 @@ const GameStatistic = (props) => {
   }
 
   // ZA GOLAME 
-  const handleChangeGolkeeperList =(index,field, novaVrednost)=>{
+  const handleChangeGolkeeperList =(index,field,flag)=>{
+    // const novaLista=[...stat];
+    // novaLista[index][field]=novaVrednost;
     const novaLista=[...stat];
-    novaLista[index][field]=novaVrednost;
+    if (flag=="minus"){
+    novaLista[index][field]--;
+    }
+    if (flag=="plus"){
+      novaLista[index][field]++;
+      }
     setStat(novaLista);
     calculateEfikasnostGK(index)
 
@@ -115,6 +122,7 @@ const GameStatistic = (props) => {
         let rez=0;
         if(pom=='manje'){
             rez=(game.i_m_gc1+game.i_m_gc2+game.i_m_gc3+game.i_m_gc4)/(game.i_m_c1+game.i_m_c2+game.i_m_c3+game.i_m_c4)
+            rez=1-rez;
         }
         else{
             rez=(game.i_v_gc1+game.i_v_gc2+game.i_v_gc3+game.i_v_gc4)/(game.i_v_c1+game.i_v_c2+game.i_v_c3+game.i_v_c4)
@@ -143,6 +151,8 @@ const GameStatistic = (props) => {
        stat.forEach((stat) => {
          updateStatistics(stat);
        });
+       console.log("tihomir", game);
+       
        updateMatches(game);
        props.fetchGames();
        props.fetchStatistics();
@@ -348,38 +358,169 @@ const GameStatistic = (props) => {
           </tr>
           </thead>
           <tbody>
-          <tr>
+          {/* <tr>
             <td>extra</td>
             <td><input type="number" name='i_v_c1' value={game.i_v_c1}  onChange={(e)=> handleChangeGameList(e.target.name,parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_c2}  onChange={(e)=> handleChangeGameList("i_v_c2",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_c3}  onChange={(e)=> handleChangeGameList("i_v_c3",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_c4}  onChange={(e)=> handleChangeGameList("i_v_c4",parseInt(e.target.value,10))}></input></td>
             <td>{calculateProsek('vise')}%</td>
-          </tr>
-          <tr>
+          </tr> */}
+          {/* <tr>
             <td>extra/goal</td>
             <td><input type="number" name='i_v_c1' value={game.i_v_gc1}  onChange={(e)=> handleChangeGameList("i_v_gc1",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_gc2}  onChange={(e)=> handleChangeGameList("i_v_gc2",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_gc3}  onChange={(e)=> handleChangeGameList("i_v_gc3",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_v_gc4}  onChange={(e)=> handleChangeGameList("i_v_gc4",parseInt(e.target.value,10))}></input></td>
-            {/* <td><input type="number" value={gameList.i_v_gc1}  onChange={(e)=> handleChangeGameList("i_v_c1",parseInt(e.target.value,10))}></input></td> */}
-          </tr>
-          <tr>
+             <td><input type="number" value={gameList.i_v_gc1}  onChange={(e)=> handleChangeGameList("i_v_c1",parseInt(e.target.value,10))}></input></td> 
+          </tr> */}
+          {/* <tr>
             <td>less</td>
             <td><input type="number" name='i_v_c1' value={game.i_m_c1}  onChange={(e)=> handleChangeGameList("i_m_c1",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_m_c2}  onChange={(e)=> handleChangeGameList("i_m_c2",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_m_c3}  onChange={(e)=> handleChangeGameList("i_m_c3",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" name='i_v_c1' value={game.i_m_c4}  onChange={(e)=> handleChangeGameList("i_m_c4",parseInt(e.target.value,10))}></input></td>
             <td>{calculateProsek('manje')}%</td> 
-          </tr>
-          <tr>
+          </tr> */}
+          {/* <tr>
             <td>less/goal</td>
             <td><input type="number" value={game.i_m_gc1}  onChange={(e)=> handleChangeGameList("i_m_gc1",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" value={game.i_m_gc2}  onChange={(e)=> handleChangeGameList("i_m_gc2",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" value={game.i_m_gc3}  onChange={(e)=> handleChangeGameList("i_m_gc3",parseInt(e.target.value,10))}></input></td>
             <td><input type="number" value={game.i_m_gc4}  onChange={(e)=> handleChangeGameList("i_m_gc4",parseInt(e.target.value,10))}></input></td>
             <td></td> 
-          </tr>
+          </tr> */}
+    <tr>
+    <td>extra</td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_c1", game.i_v_c1 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_c1}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_c1", game.i_v_c1 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_c2", game.i_v_c2 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_c2}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_c2", game.i_v_c2 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_c3", game.i_v_c3 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_c3}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_c3", game.i_v_c3 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_c4", game.i_v_c4 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_c4}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_c4", game.i_v_c4 + 1)}>+</div>
+      </div>
+    </td>
+    <td>{calculateProsek('vise')}%</td>
+  </tr>
+
+  <tr>
+    <td>extra/goal</td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_gc1", game.i_v_gc1 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_gc1}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_gc1", game.i_v_gc1 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_gc2", game.i_v_gc2 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_gc2}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_gc2", game.i_v_gc2 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_gc3", game.i_v_gc3 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_gc3}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_gc3", game.i_v_gc3 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_v_gc4", game.i_v_gc4 - 1)}>-</div>
+        <label className={styles.label}>{game.i_v_gc4}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_v_gc4", game.i_v_gc4 + 1)}>+</div>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>less</td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_c1", game.i_m_c1 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_c1}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_c1", game.i_m_c1 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_c2", game.i_m_c2 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_c2}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_c2", game.i_m_c2 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_c3", game.i_m_c3 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_c3}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_c3", game.i_m_c3 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_c4", game.i_m_c4 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_c4}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_c4", game.i_m_c4 + 1)}>+</div>
+      </div>
+    </td>
+    <td>{calculateProsek('manje')}%</td>
+  </tr>
+
+  <tr>
+    <td>less/goal</td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_gc1", game.i_m_gc1 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_gc1}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_gc1", game.i_m_gc1 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_gc2", game.i_m_gc2 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_gc2}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_gc2", game.i_m_gc2 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_gc3", game.i_m_gc3 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_gc3}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_gc3", game.i_m_gc3 + 1)}>+</div>
+      </div>
+    </td>
+    <td>
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div className={styles.minus} onClick={() => handleChangeGameList("i_m_gc4", game.i_m_gc4 - 1)}>-</div>
+        <label className={styles.label}>{game.i_m_gc4}</label>
+        <div className={styles.plus} onClick={() => handleChangeGameList("i_m_gc4", game.i_m_gc4 + 1)}>+</div>
+      </div>
+    </td>
+    <td></td>
+  </tr>
         </tbody>
         </table>
         <table className={styles.table}>
@@ -400,11 +541,32 @@ const GameStatistic = (props) => {
               <tr key={key}>
                 <td>{key}</td>
                 <td>{val.name}</td>
-                <td><input type="number" value={val.sutevi} key={key} onChange={(e)=> handleChangeGolkeeperList(key, "sutevi",parseInt(e.target.value,10))}></input></td>
+                {/* <td><input type="number" value={val.sutevi} key={key} onChange={(e)=> handleChangeGolkeeperList(key, "sutevi",parseInt(e.target.value,10))}></input></td>
                 <td><input type="number" value={val.prim_gol} key={key} onChange={(e)=> handleChangeGolkeeperList(key,"prim_gol",parseInt(e.target.value,10))}></input></td>
-                <td><input type="number" value={val.odbrane} key={key} onChange={(e)=> handleChangeGolkeeperList(key,"odbrane",parseInt(e.target.value,10))}></input></td>
-                <td>{calculateEfikasnostGK(key) === NaN ? " " : `${calculateEfikasnostGK(key)}%`}</td>
-               
+                <td><input type="number" value={val.odbrane} key={key} onChange={(e)=> handleChangeGolkeeperList(key,"odbrane",parseInt(e.target.value,10))}></input></td> */}
+                
+                <td>
+  <div style={{ display: 'flex', height: '100%' }}>
+    <div className={styles.minus} onClick={() => handleChangeGolkeeperList(key, "sutevi", "minus")}>-</div>
+    <label className={styles.label} key={key}>{val.sutevi}</label>
+    <div className={styles.plus} onClick={() => handleChangeGolkeeperList(key, "sutevi", "plus")}>+</div>
+  </div>
+</td>
+<td>
+  <div style={{ display: 'flex', height: '100%' }}>
+    <div className={styles.minus} onClick={() => handleChangeGolkeeperList(key, "prim_gol", "minus")}>-</div>
+    <label className={styles.label} key={key}>{val.prim_gol}</label>
+    <div className={styles.plus} onClick={() => handleChangeGolkeeperList(key, "prim_gol", "plus")}>+</div>
+  </div>
+</td>
+<td>
+  <div style={{ display: 'flex', height: '100%' }}>
+    <div className={styles.minus} onClick={() => handleChangeGolkeeperList(key, "odbrane", "minus")}>-</div>
+    <label className={styles.label} key={key}>{val.odbrane}</label>
+    <div className={styles.plus} onClick={() => handleChangeGolkeeperList(key, "odbrane", "plus")}>+</div>
+  </div>
+</td>
+<td>{calculateEfikasnostGK(key) === NaN ? " " : `${calculateEfikasnostGK(key)}%`}</td>
     
               </tr>
             );
