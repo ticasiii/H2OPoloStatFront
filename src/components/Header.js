@@ -139,7 +139,8 @@ const Header = (props) => {
                   
                   {showGameDropdown && <Dropdown blinking={true} onClick={gameIdHandler} options={optionsG} title={"CHOOSE GAME"}></Dropdown>}
                   <Dropdown   onClick={turnamentIdHandler} options={optionsT} title={"CHOOSE EVENT"}></Dropdown>
-                   <button onClick={navigateHandler}  >LOGOUT</button>  
+                   {/* <button onClick={navigateHandler}  >LOGOUT</button>   */}
+                   <button   >LOGOUT</button> 
                    {/* <button  onClick={navigateHandler} className={styles.logout}>LOGOUT<FontAwesomeIcon style={{marginLeft:'4px'}} size="xs" icon={faSignOut} border /></button> */}
                   {/* <Form action='/logout' method='post'>
                       <button className={styles.logout}>LOGOUT<FontAwesomeIcon style={{marginLeft:'4px'}} size="xs" icon={faSignOut} border /></button>
