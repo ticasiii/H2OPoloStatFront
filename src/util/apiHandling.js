@@ -1,5 +1,5 @@
 // apiCalls.js
-const API_BASE_URL = 'http://194.32.77.167:5000';
+const API_BASE_URL = 'https://h2opolostat.onrender.com';
 // Add Player
 const addPlayer = async (player) => {
   const response = await fetch(`${API_BASE_URL}/api/players/addPlayer`, {
